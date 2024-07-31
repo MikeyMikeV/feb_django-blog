@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    {% for post in posts %}
+    <a href="{% url 'post_detail' post_id=post.pk %}">
+        <div class="post-card">
+            <div class="post-info">
+                <div class="author-prof-pic">
+                    <img src="/static/images/default.jpg" alt="">
+                </div>
+                <div class="author-name">
+                    <p>{{post.author}} {{post.pk}}</p>
+                </div>
+                <div class="created-at">
+                    <p>
+                    {% if post.edited %}
+                        (Edited)
+                    {% endif %}
+                        {{post.created_at}}</p>
+                </div>
+            </div>
+            <div class="post-content">
+                <img src="/media/{{post.image}}" alt="">
+            </div>
+            <div class="collapesed-text">
+                {{post.text}}
+            </div>
+            <div class="like-n-share">
+                <div class="button-like">
+                    <img src="/static/images/svg/heart.svg" alt="">
+                </div>
+                <div class="button-comment">
+                    <img src="/static/images/svg/chat-right-text.svg" alt="">
+                </div>
+                <div class="button-share">
+                    <img src="/static/images/svg/share.svg" alt="">
+                </div>
+                <div class="num-views">
+                    <img src="/static/images/svg/eye-fill.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</main>
+{% endblock content %}

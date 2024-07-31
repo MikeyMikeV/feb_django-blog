@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Blog</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'home_page' %}"><button>Home</button></a>
+        <a href="{% url 'post_new' %}"><button>Create Post</button></a>
+        
+        {% if request.user.is_authenticated %}
+            <P>{{ request.user.username }}</P>
+            <a href="{% url 'logout' %}?next={{request.path}}">LogOut</a>
+        {% else %}
+            <p>Не авторизован</p>
+            <a href="{% url 'login' %}?next={{request.path}}">LogIn</a>
+            <a href="{% url 'create_user' %}?next={{request.path}}">SignUp</a>
+        {% endif %}
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,86 @@
+*{
+    background-color: beige;
+    margin: 0 auto;
+    /* background-color: rgba(0, 0, 0, 0.196); */
+    /* border: 1px solid black; */
+}
+body{
+    background-color: aquamarine;
+}
+header{
+    background-color: rgba(229, 229, 229, 0.901);
+    height: 10vh;
+}
+
+main{
+    padding-top: 5px;
+    background-color: white;
+    height: max-content;
+    width: 55%;
+}
+.post-card{
+    width: 95%;
+    height: max-content;
+    border-bottom: 1px gray solid;
+    margin-bottom: 5px;
+}
+.post-card .post-info{
+    height: 70px;
+    display: flex;
+}
+
+.post-card .post-info .author-prof-pic{
+    height: 70px;
+    width: 70px;
+    flex: 0 auto;
+    overflow:hidden;
+}
+.post-card .post-info .author-prof-pic img{
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+}
+.post-card .post-info .author-name{
+    height: 70px;
+    flex: 1 auto;
+}
+.post-card .post-info .author-name p{
+    margin: 10px;
+}
+.post-card .post-content{
+    height: max-content;
+    background-color: black;
+}
+.post-card .post-content img{
+    display: block;
+    max-width: 80%;
+    max-height: 500px;
+    object-fit: cover;
+}
+.post-card .collapesed-text{
+    height: 20px;
+}
+.post-card .un-collapesed-text{
+    height: max-content;
+}
+.post-card .like-n-share{
+    height: 50px;
+    display: flex;
+}
+.button-like, .button-comment, .button-share{
+    padding-top: 10px;
+    margin-left: 15px;
+    width: 50px;
+    flex: 0 auto;
+}
+.button-like img, .button-comment img, .button-share img{
+    width: 25px;
+    flex: 0 auto;
+}
+
+.num-views{
+    flex: 1 auto;
+}
+.num-views img{
+    float: right;
+}

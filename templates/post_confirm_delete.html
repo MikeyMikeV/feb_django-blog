@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <a href="{% url 'post_delete' post_id=post_id %}">Confirm</a>
+    <a href="{% url 'post_detail' post_id=post_id %}">Decline</a>
+</main>
+{% endblock content %}
