@@ -1,11 +1,17 @@
 from django.shortcuts import render, redirect
-from .models import Post
+from .models import Post, PostAtachment
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 
 
 def home_page(request):
     posts = Post.objects.filter(is_visible=True).order_by('-created_at')
+    images = PostAtachment.objects.all()
+    for index in range(len(posts)):
+        posts[index].images = []
+        for index_i in range(len(images)):
+            if posts[index].pk == images[index_i].post.pk:
+                posts[index].images.append(images[index_i].post.pk)
 
     context = {
         "posts": posts

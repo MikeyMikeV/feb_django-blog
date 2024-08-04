@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
-    image = models.ImageField(upload_to="images/post")
+    # image = models.ImageField(upload_to="images/post")
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     edited = models.BooleanField(default=False)
@@ -14,6 +14,12 @@ class Post(models.Model):
     def __str__(self) -> str:
         return f"{self.id} {self.title} {self.created_at}"
 
+class PostAtachment(models.Model):
+    image = models.ImageField(upload_to="images/post") 
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f"{self.pk} of {self.post.pk}"
 
 import os
 from django.dispatch import receiver
