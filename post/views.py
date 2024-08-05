@@ -11,8 +11,7 @@ def home_page(request):
         posts[index].images = []
         for index_i in range(len(images)):
             if posts[index].pk == images[index_i].post.pk:
-                posts[index].images.append(images[index_i].post.pk)
-
+                posts[index].images.append(images[index_i].image)
     context = {
         "posts": posts
     }

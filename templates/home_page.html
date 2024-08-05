@@ -20,7 +20,9 @@
                 </div>
             </div>
             <div class="post-content">
-                <img src="/media/{{post.image}}" alt="">
+                {% for image in post.images %}
+                    <img src="/media/{{image}}" alt="">
+                {% endfor %}
             </div>
             <div class="collapesed-text">
                 {{post.text}}
